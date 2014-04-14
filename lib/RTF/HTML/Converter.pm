@@ -75,7 +75,7 @@ you outputting to a string when you've read from a filehandle...
 
 =head1 AUTHOR
 
-Peter Sergeant C<rtf.parser@clueball.com>, originally by Philippe Verdret
+Peter Sergeant C<pete@clueball.com>, originally by Philippe Verdret
 
 =head1 COPYRIGHT
 

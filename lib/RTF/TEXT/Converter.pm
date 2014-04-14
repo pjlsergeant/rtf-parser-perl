@@ -25,24 +25,24 @@ Perl extension for converting RTF into text
 
 	use strict;
 	use RTF::TEXT::Converter;
-	
+
 	my $object = RTF::TEXT::Converter->new(
-	
+
 		output => \*STDOUT
-	
+
 	);
 
 	$object->parse_stream( \*RTF_FILE );
-	
+
 OR
 
 	use strict;
 	use RTF::TEXT::Converter;
-	
+
 	my $object = RTF::TEXT::Converter->new(
-	
+
 		output => \$string
-	
+
 	);
 
 	$object->parse_string( $rtf_data );
@@ -71,7 +71,7 @@ you outputting to a string when you've read from a filehandle...
 
 =head1 AUTHOR
 
-Peter Sergeant C<rtf.parser@clueball.com>, originally by Philippe Verdret
+Peter Sergeant C<pete@clueball.com>, originally by Philippe Verdret
 
 =head1 COPYRIGHT
 

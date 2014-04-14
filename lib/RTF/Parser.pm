@@ -1,7 +1,4 @@
 
-# This is a beta release. A lot of this code is hacked to be backwards
-# compatible. You have been warned.
-
 =head1 NAME
 
 RTF::Parser - An event-driven RTF Parser
@@ -12,13 +9,25 @@ An event-driven RTF Parser
 
 =head1 PUBLIC SERVICE ANNOUNCEMENT
 
-This is the third and final (I hope) beta release of RTF::Parser before I
-release a 'production' version (hopefully around Feb 1st 04). I took over
-RTF::Parser from Phillipe Verdret, in a state where it had no documentation.
-I've been working since then on refactoring parts of it, writing tests and
-documentation, but this is still a work in progress. Please bear with me,
-ignore the gaping ommission of tests and documentation for RTF::Control,
-and send me bug reports and suggestions.
+A very short history lesson...
+
+C<1.07> of this module was released in 1999 by the original author,
+Philippe Verdret. I took over the module around 2004 with high intentions. I
+added almost all of the POD, all of the tests, and most of the comments, and
+rejigged the whole thing to use L<RTF::Tokenizer> for tokenizing the incoming
+RTF, which fixed a whole class of problems.
+
+I had high hopes of overhauling the whole thing, but it didn't happen. I handed
+over maintainership some years later, but no new version was forthcoming, and
+the module has languished since then. There are many open bugs on rt.cpan.org
+and in the reviews.
+
+In a moment of weakness, I've picked up the module again with the aim of
+adding this message, fixing one or two very minor bugs, and putting a version
+that doesn't have B<UNAUTHORIZED RELEASE> in big red letters on the CPAN.
+
+I doubt I'll ever tackle the bigger bugs (Unicode support), but I will accept
+patches I can understand.
 
 =head1 IMPORTANT HINTS
 
@@ -48,9 +57,9 @@ The following code removes bold tags from RTF documents, and then spits back
 out RTF.
 
   {
-  
+
     # Create our subclass
-      
+
       package UnboldRTF;
 
     # We'll be doing lots of printing without newlines, so don't buffer output
@@ -58,12 +67,12 @@ out RTF.
       $|++;
 
     # Subclassing magic...
-    
+
       use RTF::Parser;
       @UnboldRTF::ISA = ( 'RTF::Parser' );
-                        
+
     # Redefine the API nicely
-        
+
       sub parse_start { print STDERR "Starting...\n"; }
       sub group_start { print '{' }
       sub group_end   { print '}' }
@@ -86,9 +95,9 @@ out RTF.
       print "\\$type$arg";
 
      },
-     
+
    # When we come across a bold tag, we just ignore it.
-     
+
      'b' => sub {},
 
   );
@@ -102,11 +111,11 @@ out RTF.
     my $parser = UnboldRTF->new();
 
   # Prime the object with our control handlers...
- 
+
     $parser->control_definition( \%do_on_control );
-  
+
   # Don't skip undefined destinations...
-  
+
     $parser->dont_skip_destinations(1);
 
   # Start the parsing!
@@ -242,7 +251,7 @@ sub parse_string {
 =head2 control_definition
 
 The code that's executed when we trigger a control event is kept
-in a hash. We're holding this somewhere in our object. Earlier 
+in a hash. We're holding this somewhere in our object. Earlier
 versions would make the assumption we're being subclassed by
 RTF::Control, which isn't something I want to assume. If you are
 using RTF::Control, you don't need to worry about this, because
@@ -617,7 +626,7 @@ sub _skip_group {
 
 =head1 AUTHOR
 
-Peter Sergeant C<rtf.parser@clueball.com>, originally by Philippe Verdret
+Peter Sergeant C<pete@clueball.com>, originally by Philippe Verdret
 
 =head1 COPYRIGHT
 
