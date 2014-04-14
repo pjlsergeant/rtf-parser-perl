@@ -9,7 +9,7 @@ my $object = RTF::Parser->new();
 isa_ok( $object, 'RTF::Parser' );
 
 package RTF::SubClassTest;
-@RTF::SubClassTest::ISA = ( 'RTF::Parser' );
+@RTF::SubClassTest::ISA = ('RTF::Parser');
 
 package main;
 

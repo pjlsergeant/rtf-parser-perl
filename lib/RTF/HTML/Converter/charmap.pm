@@ -5,7 +5,7 @@ chomp(@data);
 
 sub data {
 
-	return @data;
+    return @data;
 
 }
 

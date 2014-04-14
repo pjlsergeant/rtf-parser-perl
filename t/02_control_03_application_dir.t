@@ -9,10 +9,10 @@ use RTF::TEXT::Converter;
 
 use Test::More tests => 1;
 
+{
 
-{ 
-
-	my $object = RTF::Control->new( -confdir => 'asdfasdf' );
-	is( $object->application_dir, 'asdfasdf', '-confdir to set application_dir works' );
+    my $object = RTF::Control->new( -confdir => 'asdfasdf' );
+    is( $object->application_dir, 'asdfasdf',
+        '-confdir to set application_dir works' );
 
 }
