@@ -29,24 +29,24 @@ Perl extension for converting RTF into HTML
 
 	use strict;
 	use RTF::HTML::Converter;
-	
+
 	my $object = RTF::HTML::Converter->new(
-	
+
 		output => \*STDOUT
-	
+
 	);
 
 	$object->parse_stream( \*RTF_FILE );
-	
+
 OR
 
 	use strict;
 	use RTF::HTML::Converter;
-	
+
 	my $object = RTF::HTML::Converter->new(
-	
+
 		output => \$string
-	
+
 	);
 
 	$object->parse_string( $rtf_data );
@@ -185,7 +185,7 @@ my $in_Bookmark = -1;    # nested links are illegal, not used
 
             if ( $LANG eq 'fr' ) {
                 output "<$style><b>Auteur</b> : $author</$style>\n" if $author;
-                output "<$style><b>Date de création</b> : $creatim</$style>\n"
+                output "<$style><b>Date de cr&eacute;ation</b> : $creatim</$style>\n"
                     if $creatim;
                 output
                     "<$style><b>Date de modification</b> : $revtim</$style>\n"
