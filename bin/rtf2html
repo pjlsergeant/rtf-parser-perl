@@ -1,5 +1,6 @@
 #!/usr/local/bin/perl 
 # Sonovision-Itep, Verdret 1995-1999
+package App::rtf2html;
 
 use strict;
 use warnings;

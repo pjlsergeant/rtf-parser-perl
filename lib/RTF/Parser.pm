@@ -348,6 +348,7 @@ sub dont_skip_destinations {
 {
 
     package RTF::Action;
+    
     use RTF::Config;
 
     use vars qw($AUTOLOAD);
