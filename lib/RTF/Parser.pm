@@ -1,3 +1,7 @@
+package RTF::Parser;
+
+use strict;
+use warnings;
 
 =head1 NAME
 
@@ -9,6 +13,9 @@ An event-driven RTF Parser
 
 =head1 PUBLIC SERVICE ANNOUNCEMENT
 
+B<DO NOT USE THIS MODULE UNLESS YOU HAVE NO ALTERNATIVE.
+Need rtf2*? Google for pandoc.>
+
 A very short history lesson...
 
 C<1.07> of this module was released in 1999 by the original author,
@@ -16,6 +23,11 @@ Philippe Verdret. I took over the module around 2004 with high intentions. I
 added almost all of the POD, all of the tests, and most of the comments, and
 rejigged the whole thing to use L<RTF::Tokenizer> for tokenizing the incoming
 RTF, which fixed a whole class of problems.
+
+The big problem is really that the whole module is an API which happens to have
+C<rtf2html> and C<rtf2text> stuck on top of it. Any serious changes involve
+breaking the API, and that seems the greater sin than telling people to go and
+get themselves a better RTF convertor suite.
 
 I had high hopes of overhauling the whole thing, but it didn't happen. I handed
 over maintainership some years later, but no new version was forthcoming, and
@@ -126,17 +138,13 @@ out RTF.
 
 =cut
 
-require 5.004;
 
-package RTF::Parser;
 use vars qw($VERSION);
 
-use strict;
 use Carp;
 use RTF::Tokenizer 1.01;
 use RTF::Config;
 
-$VERSION = '1.09';
 my $DEBUG = 0;
 
 # Debugging stuff I'm leaving in in case someone is using it..,

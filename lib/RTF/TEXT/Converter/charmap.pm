@@ -1,5 +1,8 @@
 package RTF::TEXT::Converter::charmap;
 
+use strict;
+use warnings;
+
 my @data = (<DATA>);
 chomp(@data);
 

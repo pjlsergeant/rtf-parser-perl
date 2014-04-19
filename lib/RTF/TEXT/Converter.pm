@@ -1,7 +1,7 @@
-# Philippe Verdret 1998-1999
-use strict;
-
 package RTF::TEXT::Converter;
+
+use strict;
+use warnings;
 
 use RTF::Control;
 use RTF::TEXT::Converter::ansi;
@@ -168,10 +168,12 @@ $do_on_control{'ansi'} =    # callcack redefinition
     );
 
     # Over-ride &char to return our character mapping
-    local ($^W);
-    *char = sub {
-        output $charset{ $_[1] };
+    {
+        no warnings 'redefine';
+        *char = sub {
+            output $charset{ $_[1] };
         }
+    }
 
     };
 

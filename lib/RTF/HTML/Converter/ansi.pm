@@ -1,5 +1,8 @@
 package RTF::HTML::Converter::ansi;
 
+use strict;
+use warnings;
+
 my @data = (<DATA>);
 chomp(@data);
 

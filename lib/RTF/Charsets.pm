@@ -1,7 +1,8 @@
-# pca isn't defined!!!
-use strict;
-
 package RTF::Charsets;
+
+use strict;
+use warnings;
+
 use Exporter;
 use vars qw(@ISA @EXPORT);
 @ISA = qw(Exporter);

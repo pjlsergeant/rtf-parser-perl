@@ -1,3 +1,8 @@
+package RTF::Control;
+
+use strict;
+use warnings;
+
 # Sonovision-Itep, Philippe Verdret 1998-1999
 # TPF - Pete Sergeant 2003 - 2004
 
@@ -76,12 +81,6 @@ Pending text
 =cut
 
 # Define all our dependencies and other fluff
-
-use strict;
-
-require 5.003;
-
-package RTF::Control;
 
 use RTF::Parser;
 use RTF::Config;
@@ -394,13 +393,13 @@ sub push_output {
     # If we didn't get an argument, output becomes string...
     unless ( defined( $_[0] ) ) {
 
-        local $^W = 0;
+        no warnings 'redefine';
         *output = $string_output_sub;
 
         # If we were given 'nul', set output to $nul_output_sub
     } elsif ( $_[0] eq 'nul' ) {
 
-        local $^W = 0;
+        no warnings 'redefine';
         *output = $nul_output_sub;
 
     }
@@ -453,7 +452,7 @@ sub set_top_output_to {
         print STDERR "stream: ", fileno X, "\n" if SET_TOP_OUTPUT_TO_TRACE;
 
         # Turn off warnings
-        local $^W = 0;
+        no warnings 'redefine';
 
         # Overwrite &flush_top_output
         *flush_top_output = sub {
@@ -469,7 +468,7 @@ sub set_top_output_to {
 
         my $content_ref = $_[0];
 
-        local $^W = 0;
+        no warnings 'redefine';
 
         *flush_top_output = sub {
             $$content_ref .= $output_stack[TOP];

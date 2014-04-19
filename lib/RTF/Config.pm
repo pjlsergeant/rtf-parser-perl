@@ -1,6 +1,8 @@
-use strict;
-
 package RTF::Config;
+
+use strict;
+use warnings;
+
 use Exporter;
 use vars qw(@EXPORT @ISA $OS $LOG_FILE $LOG_CMD);
 @ISA    = qw(Exporter);
