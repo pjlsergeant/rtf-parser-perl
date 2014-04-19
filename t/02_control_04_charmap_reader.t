@@ -3,6 +3,8 @@
 # We're checking that application_dir returns sensibly.
 
 use strict;
+use warnings;
+
 use RTF::TEXT::Converter;
 use RTF::HTML::Converter;
 

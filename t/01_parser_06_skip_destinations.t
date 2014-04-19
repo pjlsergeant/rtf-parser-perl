@@ -1,6 +1,8 @@
 #!/usr/bin/perl
 
 use strict;
+use warnings;
+
 use RTF::Parser;
 use Test::More tests => 2;
 
@@ -9,7 +11,7 @@ use Test::More tests => 2;
 my $parser = RTF::Parser->new();
 
 {
-    local ($^W);
+    no warnings 'redefine';
     *RTF::Parser::text = sub { my $self = shift; $self->{_TEST_BUFF} = shift; };
 }
 

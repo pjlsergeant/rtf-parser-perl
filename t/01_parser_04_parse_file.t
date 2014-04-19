@@ -1,6 +1,8 @@
 #!/usr/bin/perl
 
 use strict;
+use warnings;
+
 use Test::More tests => 1;
 use RTF::Parser;
 
@@ -13,7 +15,7 @@ SKIP: {
     my $fh = new IO::Scalar \$string;
 
     {
-        local ($^W);
+        no warnings 'redefine';
         *RTF::Parser::text =
             sub { my $self = shift; $self->{_TEST_BUFF} = shift; };
     }

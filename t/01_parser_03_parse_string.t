@@ -1,11 +1,13 @@
 #!/usr/bin/perl
 
 use strict;
+use warnings;
+
 use Test::More tests => 1;
 use RTF::Parser;
 
 {
-    local ($^W);
+    no warnings 'redefine';
     *RTF::Parser::text = sub { my $self = shift; $self->{_TEST_BUFF} = shift; };
 }
 

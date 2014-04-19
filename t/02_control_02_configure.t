@@ -6,6 +6,8 @@
 #   in the same way that the original did.
 
 use strict;
+use warnings;
+
 use RTF::Control;
 use Test::More tests => 6;
 

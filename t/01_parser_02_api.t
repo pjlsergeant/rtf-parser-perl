@@ -3,6 +3,8 @@
 # Tests for the RTF::Parser API...
 
 use strict;
+use warnings;
+
 use RTF::Parser;
 use Test::More tests => 22;
 

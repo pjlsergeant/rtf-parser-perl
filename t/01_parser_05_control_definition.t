@@ -1,6 +1,8 @@
 #!/usr/bin/perl
 
 use strict;
+use warnings;
+
 use RTF::Parser;
 use Test::More tests => 2;
 

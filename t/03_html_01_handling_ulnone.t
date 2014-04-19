@@ -6,6 +6,8 @@
 # by looking for a<\u>b
 
 use strict;
+use warnings;
+
 use Test::More tests => 1;
 use RTF::HTML::Converter;
 
